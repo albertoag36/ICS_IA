@@ -1,0 +1,7 @@
+IA -- Claude
+
+quiero que me diseñes una página web similar a esta. Cambiame la temática para que sea una tienda de música en vez de un instituto. IMPORTANTE, no has de usar ningún framework, solo html y css puro
+
+pasame el código de html por un lado y el css por otro
+
+añade en Instrumentos, Vinilos y CD un código js que si haces click en el contenedor, aparezca una imagen de cada uno. En clases que aparezca una alerta en la que diga "En desarrollo"
