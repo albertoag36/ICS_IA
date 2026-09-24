@@ -9,7 +9,7 @@ export interface Alumno {
     activo?: boolean;
 }
 export interface Usuario {
-    rol: Rol;
+    rol: Rol.ADMIN | Rol.EDITOR | Rol.LECTOR;
     estado: "activo" | "inactivo" | "pendiente";
 }
 //# sourceMappingURL=modelo.d.ts.map

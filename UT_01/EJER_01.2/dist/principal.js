@@ -9,18 +9,17 @@ let persona;
 // --- 3 ---
 let alumnos = [{ nombre: "Alberto", nota: 9 },
     { nombre: "Alves", nota: 3, activo: true },
-    { nombre: "Garcia", nota: 0, activo: false },
+    { nombre: "Garcia", nota: 1, activo: false },
     { nombre: "Pepe", nota: 3 },
 ];
-// Revisar media
 const calcularMedia = (alumnos) => alumnos.reduce((acc, alumno) => acc + alumno.nota, 0) / alumnos.length;
 const mostrarResumen = (alumnos) => console.log(alumnos);
 // --- 4 ---
 const usuario = {
-    rol: Rol.ADMIN,
-    estado: "activo"
+    rol: Rol.LECTOR,
+    estado: "inactivo"
 };
-const describirUsuario = (usuario) => `Rol: ${usuario.rol} Estado: ${usuario.estado}`;
+const describirUsuario = (usuario) => `Rol: ${Rol[usuario.rol]} Estado: ${usuario.estado}`;
 const usuarios = [
     {
         rol: Rol.ADMIN,
@@ -39,12 +38,23 @@ const usuarios = [
     //     estado: "pepe"
     // },
     {
+        rol: Rol.EDITOR,
+        estado: "pendiente"
+    },
+    {
         rol: Rol.LECTOR,
         estado: "activo"
     }
 ];
-// Revisar
+const describirUsuarios = (usuarios) => {
+    let mensaje = "";
+    usuarios.forEach(usuario => {
+        mensaje += `Rol: ${Rol[usuario.rol]} Estado: ${usuario.estado}\n`;
+    });
+    return mensaje;
+};
 console.log(describirUsuario(usuario));
 console.log(calcularMedia(alumnos));
-console.log(mostrarResumen(alumnos));
+mostrarResumen(alumnos);
+console.log(describirUsuarios(usuarios));
 //# sourceMappingURL=principal.js.map

@@ -7,6 +7,6 @@ export interface Alumno {
 }
 
 export interface Usuario {
-    rol: Rol
+    rol: Rol.ADMIN | Rol.EDITOR | Rol.LECTOR
     estado: "activo" | "inactivo" | "pendiente"
 }

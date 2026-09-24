@@ -13,11 +13,10 @@ let persona: { nombre: string, edad: number, esSocio: boolean }
 // --- 3 ---
 let alumnos: Alumno[] = [{ nombre: "Alberto", nota: 9 },
 { nombre: "Alves", nota: 3, activo: true },
-{ nombre: "Garcia", nota: 0, activo: false },
+{ nombre: "Garcia", nota: 1, activo: false },
 { nombre: "Pepe", nota: 3 },
 ]
 
-// Revisar media
 const calcularMedia = (alumnos: Alumno[]): number => alumnos.reduce((acc: number, alumno: Alumno) => acc + alumno.nota, 0) / alumnos.length
 
 const mostrarResumen = (alumnos: Alumno[]): void => console.log(alumnos)
@@ -25,11 +24,11 @@ const mostrarResumen = (alumnos: Alumno[]): void => console.log(alumnos)
 // --- 4 ---
 
 const usuario: Usuario = {
-    rol: Rol.ADMIN,
-    estado: "activo"
+    rol: Rol.LECTOR,
+    estado: "inactivo"
 }
 
-const describirUsuario = (usuario: Usuario): string => `Rol: ${usuario.rol} Estado: ${usuario.estado}`
+const describirUsuario = (usuario: Usuario): string => `Rol: ${Rol[usuario.rol]} Estado: ${usuario.estado}`
 
 const usuarios: Usuario[] = [
     {
@@ -49,12 +48,26 @@ const usuarios: Usuario[] = [
     //     estado: "pepe"
     // },
     {
+        rol: Rol.EDITOR,
+        estado: "pendiente"
+    },
+    {
         rol: Rol.LECTOR,
         estado: "activo"
     }
 ]
 
-// Revisar
+const describirUsuarios = (usuarios: Usuario[]): string => {
+    let mensaje: string = ""
+    usuarios.forEach(usuario => {
+        mensaje += `Rol: ${Rol[usuario.rol]} Estado: ${usuario.estado}\n`
+    })
+
+    return mensaje
+}
+
+
 console.log(describirUsuario(usuario))
 console.log(calcularMedia(alumnos))
-console.log(mostrarResumen(alumnos))
+mostrarResumen(alumnos)
+console.log(describirUsuarios(usuarios))
