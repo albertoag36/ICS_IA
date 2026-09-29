@@ -1,0 +1,29 @@
+1. ¿En qué archivo está el punto de entrada de la aplicación? ¿Qué hace la función `createRoot`?
+En el main.jsx de la carpeta src. createRoot crea una raíz en el documento HTML para
+los componentes de React y toma un elemento DOM donde colocar
+los componentes de React, que en este caso es el elemento con el ID «root».
+createRoot devuelve un objeto que contiene una función render
+
+2. ¿Cuál es el ID del elemento HTML donde se monta la aplicación? ¿En qué archivo está definido?
+El id es root y está definido en main.jsx
+
+3. Dibuja el árbol de componentes que se renderiza al arrancar el proyecto recién creado.
+StrictMode
+└── App
+    ├── Cabecera
+    ├── Main
+    └── Pie
+
+4. ¿Qué ocurre en la página si eliminas `<StrictMode>` de `main.jsx`? ¿Y en la consola en modo desarrollo?
+En la página no afecta nada, pero en la consola los componentes ya no se renderizan dos veces al montarse
+y la consola no mostrará advertencias sobre patrones inseguros o APIs obsoletas
+
+5. Abre `App.jsx` y localiza tres fragmentos de código JavaScript escritos entre llaves `{ }` dentro del JSX. Explica qué hace cada uno.
+count -> este elemento cuenta lo que se quiera hacer en los eventos. Se usa normalmente en el onClick, es decir, que este cuenta en una variable
+que no se va a usar luego el número de clicks
+
+setCount -> se le asigna el valor del count
+
+useState(0) -> es el estado inicial del setCount
+6. ¿Qué es el elemento `<>` que envuelve el JSX devuelto por `App`? ¿Genera algún elemento en el DOM? Compruébalo con las herramientas de desarrollo del navegador (pestaña *Elementos*).
+Es todo lo que está dentro del contenedor con id root dentro del body
