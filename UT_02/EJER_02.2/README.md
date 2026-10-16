@@ -59,3 +59,20 @@ export function Bandeja() {
   );
 }
 
+------------------------------------------------------------------------
+
+Con la aplicación en marcha y las React Developer Tools instaladas:
+
+1. En el panel **Components**, selecciona un `Contador`:
+    - Cambia la prop `etiqueta` desde el panel. ¿Se actualiza la página?
+Si, cambia el valor
+
+    - Cambia el valor del estado a `10`. ¿Qué ocurre si después pulsas **Reiniciar**? Explica por qué.
+
+
+    - Activa la opción de analizar nombres de Hooks (icono de la varita). ¿Qué nombre aparece ahora junto a `State`?
+2. Selecciona una `PreguntaFrecuente` y alterna el estado `abierta` desde el panel.
+3. En el panel **Profiler**, activa «Registrar por qué se renderizó cada componente». Graba una sesión en la que pulses +1 tres veces en **uno** de los contadores.
+    - ¿Qué componentes se volvieron a renderizar?
+    - ¿Se renderizó también el otro contador? ¿Por qué?
+    - ¿Qué motivo indica el Profiler para el re-render?

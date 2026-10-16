@@ -1,19 +1,22 @@
 import { useState } from "react"
 
-export const AvisoCookies = ({ children, onAceptar = false, onRechazar = false }) => {
-    const [visible, setVisible] = useState()
+export const AvisoCookies = ({ children, onAceptar, onRechazar }) => {
+    const [visible, setVisible] = useState(true)
     const manejarAceptar = () => {
-        if (onAceptar) {
-            console.log('Cookies aceptadas')
-        }
+        setVisible(false)
+        onAceptar?.()
     }
+
     const manejarRechazar = () => {
-        if (onRechazar) {
-            console.log('Cookies rechazadas')
-        }
+        setVisible(false)
+        onRechazar?.()
     }
+
+    if (!visible) return null
+
     return (
         <div>
+            <p>{children}</p>
             <button onClick={manejarAceptar}>Aceptar</button>
             <button onClick={manejarRechazar}>Rechazar</button>
         </div>
