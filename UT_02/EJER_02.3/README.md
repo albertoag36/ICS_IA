@@ -6,13 +6,11 @@ let ciudad = 'Oviedo'; --> :string
 let habitantes = 220000; --> :number
 let esCapital = true; --> :boolean
 const notas = [7.5, 8, 9.25]; --> :number[]
-const fechaExamen = new Date(2026, 11, 15); :Date
-let pendiente;
+const fechaExamen = new Date(2026, 11, 15); --> :Date
+let pendiente; --> any
 
 Pregunta: ¿por qué pendiente no tiene un tipo útil? Corrígelo con una anotación para que solo admita textos.
-
-
-Porque no está inicializada. Para que admita textos sería let pendiente:string = ''
+Porque no tiene un tipo de dato declarado
 
 ---------------------------------------------------------------------------
 A2. Encuentra los errores. El siguiente código tiene cuatro errores de tipo. Localízalos, explica cada uno en un comentario y corrígelos sin usar any.
@@ -34,6 +32,13 @@ hoy.sumarDias(3);
 let aprobado = true;
 aprobado = 'sí';
 
+Error 1 --> const media: string --> Porque calcularMedia develve un tipo number. --> Correción: const media: number .....
+
+Error 2 --> calcularMedia([6, '7', 8]) --> Porque solo acepta un array de tipo Number --> Corrección: calcularMedia([6, 7, 8])
+
+Error 3 --> hoy.sumarDias(3) --> Porque la función no existe en la clase Date --> Correción: quitarla
+
+Error 4 --> aprobado = 'sí' --> Porque se le asigna implícitamente el tipado booleano --> Correción. aprobado = false
 
 ---------------------------------------------------------------------------
 A3. Funciones con tipos. Escribe una función calcularPrecioFinal que reciba un precio, un porcentaje de IVA y un descuento opcional (también en porcentaje) y devuelva el precio final. Anota los parámetros y el tipo de retorno.
@@ -51,13 +56,33 @@ const respuesta: any = JSON.parse('{"titulo": "Dune", "paginas": 412}');
 console.log(respuesta.autor.toUpperCase());
 
 1. Explica por qué TypeScript no avisa del error.
-
+Porque any lo tipa como un tipo genérico y da igual qué tipo de dato le pases
 
 2. Cambia `any` por `unknown` y observa qué ocurre.
-
+Da error
 
 3. Escribe una guarda de tipo `esLibro(valor: unknown): valor is Libro`, siendo `type Libro = { titulo: string; paginas: number }`. Úsala para mostrar el título solo cuando los datos sean válidos.
 
+type Libro = { titulo: string; paginas: number };
+
+function esLibro(valor: unknown): valor is Libro {
+  return (
+    typeof valor === "object" &&
+    valor !== null &&
+    "titulo" in valor &&
+    typeof valor.titulo === "string" &&
+    "paginas" in valor &&
+    typeof valor.paginas === "number"
+  );
+}
+
+const respuesta: unknown = JSON.parse('{"titulo": "Dune", "paginas": 412}');
+
+if (esLibro(respuesta)) {
+  console.log(respuesta.titulo);
+} else {
+  console.log("Los datos no tienen el formato de un libro");
+}
 
 ---------------------------------------------------------------------------
 A5. Pregunta teórica. Explica con tus palabras la diferencia entre unknown y never, y pon un ejemplo de función que devuelva never.
