@@ -86,7 +86,9 @@ if (esLibro(respuesta)) {
 
 ---------------------------------------------------------------------------
 A5. Pregunta teórica. Explica con tus palabras la diferencia entre unknown y never, y pon un ejemplo de función que devuelva never.
+unknown admite cualquier valor, mientras que never no admite ninguno. Se usa para funciones que nunca terminan
 
+function lanzarError(mensaje: string): never { throw new Error(mensaje); }
 
 Bloque B. Crear tipos (TypeScript Playground) -----------------------------
 
