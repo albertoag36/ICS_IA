@@ -7,6 +7,10 @@ export function Saludo({ nombre }) {
 }
 
 El nombre del parámetro "nombreAlumno" del componente "Saludo" en App.jsx tiene que tener el mismo nombre que en Saludo.jsx
+
+export function Saludo({ nombreAlumno }) {
+  return<p>¡Hola, {nombreAlumno}!</p>;
+}
 ------------------------------------------------------------------------
 export function Interruptor() {
   const [encendido, setEncendido] = useState(false);
@@ -17,21 +21,44 @@ export function Interruptor() {
   );
 }
 
+El evento click nunca va a hacer nada porque la condición nunca se cumple
 
+export function Interruptor() {
+  const [encendido, setEncendido] = useState(verdadero);
+  return (
+    <button onClick={() => (encendido)}>
+      {encendido ? 'Apagar' : 'Encender'}
+    </button>
+  );
+}
 ------------------------------------------------------------------------
 export function Contador() {
   const [valor, setValor] = useState(0);
   return<button onClick={setValor(valor + 1)}>Pulsado {valor} veces</button>;
 }
 
+porque no estás importando use state y porque nunca estás llamando al handler de onClick
 
+import { useState } from "react"
+
+export function Contador() {
+  const [valor, setValor] = useState(0);
+  return<button onClick={() => setValor(valor => valor + 1)}>Pulsado {valor} veces</button>;
+}
 ------------------------------------------------------------------------
 export function Contador() {
   const [valor, setValor] = useState(0);
   return<button onClick={() => setValor(valor + 1)}>{valor}</button>;
 }
 
+porque no estás importando use state
 
+import { useState } from "react"
+
+export function Contador() {
+  const [valor, setValor] = useState(0);
+  return<button onClick={() => setValor(valor => valor + 1)}>{valor}</button>;
+}
 ------------------------------------------------------------------------
 export function BotonEnviar({ onEnviar }) {
   function manejarClic() {
@@ -44,6 +71,8 @@ export function BotonEnviar({ onEnviar }) {
 <BotonEnviar />
 
 Falta pasar el parámetro en BotonEnviar en App.jsx
+
+<BotonEnviar onEnviar={laFuncionCreadaEnApp}>
 ------------------------------------------------------------------------
 export function Bandeja() {
   const [mensajesNuevos, setMensajesNuevos] = useState(0);
@@ -55,6 +84,15 @@ export function Bandeja() {
 }
 
 Porque mensajesNuevos es 0 y no un valor booleano
+
+export function Bandeja() {
+  const [mensajesNuevos, setMensajesNuevos] = useState(0);
+  return (
+    <div>
+      {mensajesNuevos > 0 &&<p>Tienes {mensajesNuevos} mensajes nuevos</p>}
+    </div>
+  );
+}
 ------------------------------------------------------------------------
 
 Con la aplicación en marcha y las React Developer Tools instaladas:
