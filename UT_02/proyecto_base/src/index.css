@@ -1,0 +1,127 @@
+/* Estilos ya preparados: no hace falta tocar este archivo. */
+:root {
+  font-family: system-ui, Segoe UI, Roboto, sans-serif;
+  color: #1f2937;
+  background: #f3f4f6;
+}
+body {
+  margin: 0;
+}
+.contenedor {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+h1 {
+  margin: 0;
+}
+.subtitulo {
+  margin: 4px 0 12px;
+  color: #6b7280;
+}
+.cabecera {
+  margin: 0 0 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #e0e7ff;
+  font-weight: 600;
+}
+
+/* Tarjetas */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: white;
+  border-top: 6px solid #9ca3af;
+}
+.tarjeta h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.tarjeta p {
+  margin: 0;
+}
+.tarjeta--ninguno {
+  border-top-color: #9ca3af;
+}
+.tarjeta--algunos {
+  border-top-color: #2563eb;
+}
+.tarjeta--lider {
+  border-top-color: #f59e0b;
+  background: #fffbeb;
+}
+.numero {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #6b7280;
+}
+.lema {
+  font-style: italic;
+  color: #374151;
+}
+.insignia {
+  color: #b45309;
+  font-weight: 600;
+}
+.aviso {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+.tarjeta button {
+  margin-top: auto;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+.vacio {
+  padding: 16px;
+  text-align: center;
+  color: #6b7280;
+  background: white;
+  border-radius: 8px;
+}
+
+/* Formulario */
+.formulario {
+  background: white;
+  border-radius: 8px;
+  padding: 4px 16px 16px;
+}
+.campo {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+.campo input {
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font: inherit;
+}
+.formulario button {
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+.formulario button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
