@@ -18,7 +18,7 @@ function App() {
 
   const maximo = () => {
     if (candidatos.length === 0) return 0
-    return candidatos.sort((a, b) => b.votos - a.votos).map(candidato => candidato.votos)[0]
+    return [...candidatos].sort((a, b) => b.votos - a.votos).map(candidato => candidato.votos)[0]
   }
 
   const votar = (id:number) => {

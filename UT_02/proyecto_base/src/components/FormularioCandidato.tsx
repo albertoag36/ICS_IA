@@ -24,7 +24,6 @@ export function FormularioCandidato({ alAnadir }: Porps) {
       lema: lema
     }
 
-    console.log(nuevoCandidato)
     alAnadir(nuevoCandidato)
     setNombre('')
     setNumeroLista(0)
