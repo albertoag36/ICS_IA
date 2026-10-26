@@ -18,21 +18,68 @@ export const BuscadorPeliculas = () => {
   const [genero, setGenero] = useState<string>("Todos");
 
   const manejoBoton = () => {
-    setBusqueda('')
-    setGenero("Todos")
-  }
+    setBusqueda("");
+    setGenero("Todos");
+  };
+
+  const manejoSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setGenero(e.target.value);
+  };
+
+  const manejoTecla = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Escape") setBusqueda("");
+  };
+
+  const manejoLista = () => {
+    if (genero === "Todos") {
+      return peliculas.map((pelicula) => (
+        <li key={pelicula.titulo}>{pelicula.titulo}</li>
+      ));
+    }
+    return peliculas
+      .filter(
+        (pelicula) =>
+          pelicula.genero === genero && pelicula.titulo.includes(busqueda),
+      )
+      .map((pelicula) => <li key={pelicula.titulo}>{pelicula.titulo}</li>);
+  };
+
+    const resultados = peliculas.filter(
+    (pelicula) =>
+      (genero === "Todos" || pelicula.genero === genero) &&
+      pelicula.titulo.toLowerCase().includes(busqueda.toLowerCase())
+  );
 
   return (
     <div>
-      <input type="text" onChange={(e) => setBusqueda(e.target.value)}></input>
-      <select>
-        <option>{genero}</option>
-        {peliculas.map(pelicula => <option key={pelicula.titulo}>{pelicula.genero}</option>)}
+      <input
+        type="text"
+        value={busqueda}
+        onChange={(e) => setBusqueda(e.target.value)}
+        onKeyDown={manejoTecla}
+      ></input>
+      <select value={genero} onChange={manejoSelect}>
+        <option value="Todos">Todos</option>
+        {peliculas.map((pelicula) => (
+          <option key={pelicula.genero} value={pelicula.genero}>{pelicula.genero}</option>
+        ))}
       </select>
       <button onClick={manejoBoton}>Limpiar filtros</button>
-      <ol>
-        {}
-      </ol>
+      <p>
+        {resultados.length} {resultados.length === 1 ? "resultado" : "resultados"}
+      </p>
+
+      {resultados.length === 0 ? (
+        <p>Sin resultados</p>
+      ) : (
+        <ul>
+          {resultados.map((p) => (
+            <li key={p.titulo}>
+              {p.titulo} ({p.anio}) · {p.genero}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
