@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maqueta — Noche de cine</title>
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Plan de viernes · en casa</p>
+      <h1>Prepara tu noche de cine</h1>
+      <p class="intro">Organiza lo que falta en la despensa y encuentra una película para compartir. Marca la compra y filtra el catálogo a tu gusto.</p>
+    </header>
+    <div class="columns">
+      <section class="panel" aria-labelledby="shopping-heading">
+        <p class="eyebrow">01 · Preparativos</p>
+        <h2 id="shopping-heading">Lista de la compra</h2>
+        <p class="panel-intro">Añade lo que necesitas para la sesión.</p>
+        <form class="inline-form">
+          <label class="sr-only" for="product-name">Producto</label>
+          <input id="product-name" type="text" placeholder="Ej.: chocolate" />
+          <button type="button">Añadir</button>
+        </form>
+        <ul class="shopping-list">
+          <li class="shopping-item"><label><input type="checkbox" /><span class="product-name">Palomitas</span></label><button class="remove-button" type="button">Quitar</button></li>
+          <li class="shopping-item"><label><input type="checkbox" /><span class="product-name">Bebidas</span></label><button class="remove-button" type="button">Quitar</button></li>
+          <li class="shopping-item is-bought"><label><input type="checkbox" checked /><span class="product-name">Servilletas</span></label><button class="remove-button" type="button">Quitar</button></li>
+        </ul>
+        <p class="pending-count">Pendientes: 2</p>
+      </section>
+      <section class="panel" aria-labelledby="movies-heading">
+        <p class="eyebrow">02 · Elige el plan</p>
+        <h2 id="movies-heading">Buscador de películas</h2>
+        <p class="panel-intro">Busca por título y combina la búsqueda con un género.</p>
+        <div class="filters">
+          <label class="sr-only" for="movie-search">Buscar película</label>
+          <input id="movie-search" type="search" placeholder="Título de película…" />
+          <label class="sr-only" for="genre-filter">Filtrar por género</label>
+          <select id="genre-filter"><option>Todos</option><option>Animación</option><option>Aventura</option><option>Ciencia ficción</option><option>Comedia</option><option>Misterio</option></select>
+        </div>
+        <div class="results-line"><span>10 resultados</span><button class="clear-button" type="button">Limpiar filtros</button></div>
+        <ul class="movie-list">
+          <li class="movie-card"><h3>Toy Story</h3><div class="movie-meta"><span>1995</span><span class="genre-chip">Animación</span></div></li>
+          <li class="movie-card"><h3>Parque Jurásico</h3><div class="movie-meta"><span>1993</span><span class="genre-chip">Aventura</span></div></li>
+          <li class="movie-card"><h3>The Matrix</h3><div class="movie-meta"><span>1999</span><span class="genre-chip">Ciencia ficción</span></div></li>
+          <li class="movie-card"><h3>Amélie</h3><div class="movie-meta"><span>2001</span><span class="genre-chip">Comedia</span></div></li>
+          <li class="movie-card"><h3>Los Increíbles</h3><div class="movie-meta"><span>2004</span><span class="genre-chip">Animación</span></div></li>
+          <li class="movie-card"><h3>Interstellar</h3><div class="movie-meta"><span>2014</span><span class="genre-chip">Ciencia ficción</span></div></li>
+          <li class="movie-card"><h3>Coco</h3><div class="movie-meta"><span>2017</span><span class="genre-chip">Animación</span></div></li>
+          <li class="movie-card"><h3>Puñales por la espalda</h3><div class="movie-meta"><span>2019</span><span class="genre-chip">Misterio</span></div></li>
+          <li class="movie-card"><h3>Dune</h3><div class="movie-meta"><span>2021</span><span class="genre-chip">Ciencia ficción</span></div></li>
+          <li class="movie-card"><h3>Barbie</h3><div class="movie-meta"><span>2023</span><span class="genre-chip">Comedia</span></div></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
