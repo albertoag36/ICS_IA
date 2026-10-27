@@ -32,7 +32,6 @@ export function FormularioCandidato({ alAnadir }: Porps) {
 
   const manejarDisabled = () => (nombre.trim() !== '' && numeroLista >= 1 && numeroLista <= 30) ? false : true
 
-
   return (
     <form className="formulario" onSubmit={manejarSubmit}>
       <h2>Nueva candidatura</h2>

@@ -30,24 +30,10 @@ export const BuscadorPeliculas = () => {
     if (e.key === "Escape") setBusqueda("");
   };
 
-  const manejoLista = () => {
-    if (genero === "Todos") {
-      return peliculas.map((pelicula) => (
-        <li key={pelicula.titulo}>{pelicula.titulo}</li>
-      ));
-    }
-    return peliculas
-      .filter(
-        (pelicula) =>
-          pelicula.genero === genero && pelicula.titulo.includes(busqueda),
-      )
-      .map((pelicula) => <li key={pelicula.titulo}>{pelicula.titulo}</li>);
-  };
-
-    const resultados = peliculas.filter(
+  const resultados = peliculas.filter(
     (pelicula) =>
       (genero === "Todos" || pelicula.genero === genero) &&
-      pelicula.titulo.toLowerCase().includes(busqueda.toLowerCase())
+      pelicula.titulo.toLowerCase().includes(busqueda.toLowerCase()),
   );
 
   return (
@@ -61,12 +47,15 @@ export const BuscadorPeliculas = () => {
       <select value={genero} onChange={manejoSelect}>
         <option value="Todos">Todos</option>
         {peliculas.map((pelicula) => (
-          <option key={pelicula.genero} value={pelicula.genero}>{pelicula.genero}</option>
+          <option key={pelicula.genero} value={pelicula.genero}>
+            {pelicula.genero}
+          </option>
         ))}
       </select>
       <button onClick={manejoBoton}>Limpiar filtros</button>
       <p>
-        {resultados.length} {resultados.length === 1 ? "resultado" : "resultados"}
+        {resultados.length}{" "}
+        {resultados.length === 1 ? "resultado" : "resultados"}
       </p>
 
       {resultados.length === 0 ? (
