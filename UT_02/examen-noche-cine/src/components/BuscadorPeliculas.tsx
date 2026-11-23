@@ -38,7 +38,7 @@ const BuscadorPeliculas = () => {
         onChange={(e) => setGeneroSeleccionado(e.target.value)}
       >
         {generos.map((genero) => (
-          <option key={genero} value={genero}>
+          <option key={genero} >
             {genero}
           </option>
         ))}
