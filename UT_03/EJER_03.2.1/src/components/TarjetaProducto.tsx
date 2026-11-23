@@ -1,4 +1,4 @@
-export function TarjetaProducto(nombre, precio):[string, number] {
+export function TarjetaProducto({nombre, precio}: [string, number]) {
   return (
     <div>
       <p>{nombre}</p>
