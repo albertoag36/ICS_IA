@@ -3,10 +3,12 @@ import { TarjetaProducto } from "./TarjetaProducto"
 
 export function Catalogo() {
   return (
-    <div>
-      {catalogo.map(producto => {
-        <TarjetaProducto key={producto.id} nombre={producto.nombre} precio={producto.precio} />
-      })}
-    </div>
+    <section className="catalogo">
+      <div className="productos-grid">
+        {catalogo.map(producto => (
+          <TarjetaProducto key={producto.id} id={producto.id} nombre={producto.nombre} precio={producto.precio} stock={producto.stock} />
+        ))}
+      </div>
+    </section>
   )
 }

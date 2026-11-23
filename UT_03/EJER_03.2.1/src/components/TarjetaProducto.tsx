@@ -1,6 +1,8 @@
-export function TarjetaProducto({nombre, precio}: [string, number]) {
+import type { Producto } from "../tipos";
+
+export function TarjetaProducto( {id, nombre, precio, stock}: Producto ) {
   return (
-    <div>
+    <div className="tarjeta-producto">
       <p>{nombre}</p>
       <p>{precio}</p>
       <button>Añadir</button>
