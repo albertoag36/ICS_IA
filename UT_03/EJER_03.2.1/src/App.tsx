@@ -36,22 +36,45 @@ function App() {
   };
 
   const incrementarCantidad = (id: string) => {
-    const producto = carrito.find((producto) => producto.idProducto === id);
-    if (!producto) return;
+    const productoCatalogo = catalogo.find((p) => p.id === id);
+    if (!productoCatalogo) return;
 
-    
+    setCarrito((anterior) =>
+      anterior.map((producto) =>
+        producto.idProducto === id && producto.cantidad < productoCatalogo.stock
+          ? { ...producto, cantidad: producto.cantidad + 1 }
+          : producto,
+      ),
+    );
   };
 
-  const decrementarCantidad = () => {};
+  const decrementarCantidad = (id: string) => {
+    setCarrito((anterior) =>
+      anterior
+        .map((producto) =>
+          producto.idProducto === id
+            ? { ...producto, cantidad: producto.cantidad - 1 }
+            : producto,
+        )
+        .filter((producto) => producto.cantidad > 0),
+    );
+  };
 
-  const eliminarCarrito = () => {};
+  const eliminarCarrito = (id: string) =>
+    setCarrito(carrito.filter((producto) => producto.idProducto !== id))
 
   const vaciar = () => setCarrito([]);
   return (
     <div className="app-layout">
-      <Catalogo />
-      <Carrito />
-      <ResumenCarrito />
+      <Catalogo carrito={carrito} onAniadir={aniadirCarrito} />
+      <Carrito
+        carrito={carrito}
+        onIncrementar={incrementarCantidad}
+        onDecrementar={decrementarCantidad}
+        onEliminar={eliminarCarrito}
+        onVaciar={vaciar}
+      />
+      <ResumenCarrito carrito={carrito} onVaciar={vaciar}/>
     </div>
   );
 }
